@@ -1,6 +1,7 @@
 package com.bridgelabz.converter.unitconverter.mockito.service;
 
 import com.bridgelabz.converter.unitconverter.enumration.UnitConverterEnum;
+import com.bridgelabz.converter.unitconverter.enumration.UnitConverterSubType;
 import com.bridgelabz.converter.unitconverter.service.implementors.UnitConverterService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,8 @@ public class MockitoTestForUnitConverter {
     private UnitConverterService unitConverterService;
 
     @Test
-    public void name() {
+    void givenUnits_WhenGetUnits_ShouldReturn_JsonArray() {
         UnitConverterEnum[] expectedArray = {UnitConverterEnum.LENGTH, UnitConverterEnum.VOLUME};
-        System.out.println(expectedArray);
         given(unitConverterService.getAllUnits()).willReturn(Arrays.asList(expectedArray));
         try {
             this.mvc.perform(get("unit/type"))
@@ -36,4 +36,19 @@ public class MockitoTestForUnitConverter {
             e.printStackTrace();
         }
     }
+
+    @Test
+    void givenSubUnits_WhenGetUnits_ShouldReturn_JsonArray() {
+        Enum expectedArray[] = {UnitConverterSubType.LENGTH.FEET, UnitConverterSubType.LENGTH.INCH, UnitConverterSubType.LENGTH.YARD,
+                UnitConverterSubType.VOLUME.GALLON, UnitConverterSubType.VOLUME.LITRES, UnitConverterSubType.VOLUME.MILILETRES};
+        given(unitConverterService.getMeSubUnits()).willReturn(Arrays.asList(expectedArray));
+        try {
+            this.mvc.perform(get("unit/subtype"))
+                    .andDo(print()).andExpect(status().isOk()).andExpect(content().json(Arrays.toString(expectedArray)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

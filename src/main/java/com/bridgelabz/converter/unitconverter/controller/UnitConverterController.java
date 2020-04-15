@@ -16,4 +16,8 @@ public class UnitConverterController {
     List getMeAllTypes(){
         return iUnitConverterService.getAllUnits();
     }
+    @GetMapping("unit/subtype")
+    List getMeSubTypes(){
+        return iUnitConverterService.getMeSubUnits();
+    }
 }
