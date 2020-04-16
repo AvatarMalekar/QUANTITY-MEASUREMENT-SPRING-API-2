@@ -9,5 +9,4 @@ public interface IUnitConverterService {
     public List<UnitConverterEnum> getAllUnits();
     List getMeSubUnits();
     double convertThisForMe(UnitConverterDTO unitConverterDTO);
-    double tp(UnitConverterDTO unitConverterDTO);
 }

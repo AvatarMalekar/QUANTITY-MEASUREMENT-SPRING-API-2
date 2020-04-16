@@ -22,7 +22,7 @@ public class BaseConverter {
         if(UnitConverterSubType.GALLON == typeOfEnum){
             return value*3.78;
         }
-        if(UnitConverterSubType.MILILETRES == typeOfEnum){
+        if(UnitConverterSubType.MILILITRES == typeOfEnum){
             return value*(1/1000.0);
         }
         if(UnitConverterSubType.LITRES == typeOfEnum){

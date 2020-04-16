@@ -15,9 +15,10 @@ public class DecideConverter {
     }
 
     public double getMeValueAfterConversion() {
-        if(unitConverterDTO.getMainType()==UnitConverterEnum.LENGTH){
+        if(unitConverterDTO.getMainType()==UnitConverterEnum.LENGTH)
             return baseConverter.getBaseConversionForLength(unitConverterDTO.getInitialUnit(),unitConverterDTO.getValue());
-        }
+        if(unitConverterDTO.getMainType()==UnitConverterEnum.VOLUME)
+            return baseConverter.getBaseConversionForVolume(unitConverterDTO.getInitialUnit(),unitConverterDTO.getValue());
         return 0;
     }
 }

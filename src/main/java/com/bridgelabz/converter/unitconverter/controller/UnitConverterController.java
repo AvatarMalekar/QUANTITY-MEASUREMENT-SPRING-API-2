@@ -34,13 +34,4 @@ public class UnitConverterController {
         unitConverterDTO.setValue(value);
         return iUnitConverterService.convertThisForMe(unitConverterDTO);
     }
-
-    @GetMapping("unit/tp")
-    double getTpValue(@RequestParam(value="Tp") UnitConverterSubType enumValue,@RequestParam(value="dvalue")double dvalue){
-        UnitConverterDTO unitConverterDTO=new UnitConverterDTO();
-        unitConverterDTO.setDesiredConversion(enumValue);
-        unitConverterDTO.setValue(dvalue);
-        return iUnitConverterService.tp(unitConverterDTO);
-    }
-
 }
