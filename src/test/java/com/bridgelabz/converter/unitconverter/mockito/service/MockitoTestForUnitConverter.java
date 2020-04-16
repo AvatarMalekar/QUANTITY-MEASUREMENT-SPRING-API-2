@@ -44,7 +44,7 @@ public class MockitoTestForUnitConverter {
     @Test
     void givenSubUnits_WhenGetUnits_ShouldReturn_JsonArray() {
         Enum expectedArray[] = {FEET, INCH, UnitConverterSubType.YARD,
-                UnitConverterSubType.GALLON, UnitConverterSubType.LITRES, UnitConverterSubType.MILILETRES};
+                UnitConverterSubType.GALLON, UnitConverterSubType.LITRES, UnitConverterSubType.MILILITRES};
         given(unitConverterService.getMeSubUnits()).willReturn(Arrays.asList(expectedArray));
         try {
             this.mvc.perform(get("unit/subtype"))

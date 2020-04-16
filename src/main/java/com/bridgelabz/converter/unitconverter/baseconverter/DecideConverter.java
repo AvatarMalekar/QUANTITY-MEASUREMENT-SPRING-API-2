@@ -11,7 +11,7 @@ public class DecideConverter {
     UnitConverterDTO unitConverterDTO;
 
     public DecideConverter(UnitConverterDTO unitConverterDTO) {
-       this.unitConverterDTO=unitConverterDTO;
+        this.unitConverterDTO=unitConverterDTO;
     }
 
     public double getMeValueAfterConversion() {
@@ -19,6 +19,8 @@ public class DecideConverter {
             return baseConverter.getBaseConversionForLength(unitConverterDTO.getInitialUnit(),unitConverterDTO.getValue());
         if(unitConverterDTO.getMainType()==UnitConverterEnum.VOLUME)
             return baseConverter.getBaseConversionForVolume(unitConverterDTO.getInitialUnit(),unitConverterDTO.getValue());
+        if(unitConverterDTO.getMainType()==UnitConverterEnum.TEMPERATURE)
+            return baseConverter.getBaseConversionForTemperature((UnitConverterSubType) unitConverterDTO.getInitialUnit(),unitConverterDTO.getValue());
         return 0;
     }
 }

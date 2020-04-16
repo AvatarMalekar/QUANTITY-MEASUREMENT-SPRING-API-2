@@ -6,8 +6,7 @@ import com.bridgelabz.converter.unitconverter.enumration.UnitConverterSubType;
 public class UnitConverterDTO {
     UnitConverterEnum mainType;
     UnitConverterSubType initialUnit;
-   // UnitConverterSubType.VOLUME initialUnit;
-   UnitConverterSubType desiredConversion;
+    UnitConverterSubType desiredConversion;
     double value;
     public UnitConverterEnum getMainType() {
         return mainType;
