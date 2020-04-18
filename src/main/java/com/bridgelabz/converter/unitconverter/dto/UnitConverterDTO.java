@@ -27,6 +27,10 @@ public class UnitConverterDTO {
         return desiredConversion.conversionValue;
     }
 
+    public Enum getDesiredConversionType(){
+        return this.desiredConversion;
+    }
+
     public void setDesiredConversion(UnitConverterSubType desiredConversion) {
         this.desiredConversion = desiredConversion;
     }

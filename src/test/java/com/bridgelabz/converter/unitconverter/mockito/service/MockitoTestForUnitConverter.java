@@ -1,5 +1,6 @@
 package com.bridgelabz.converter.unitconverter.mockito.service;
 
+import com.bridgelabz.converter.unitconverter.dto.ResponseDTO;
 import com.bridgelabz.converter.unitconverter.dto.UnitConverterDTO;
 import com.bridgelabz.converter.unitconverter.enumration.UnitConverterEnum;
 import com.bridgelabz.converter.unitconverter.enumration.UnitConverterSubType;
@@ -62,7 +63,8 @@ public class MockitoTestForUnitConverter {
         unitConverterDTO.setInitialUnit(FEET);
         unitConverterDTO.setDesiredConversion(INCH);
         unitConverterDTO.setValue(4);
-        given(unitConverterService.convertThisForMe(unitConverterDTO)).willReturn(expectedValue);
+        ResponseDTO responseDTO=new ResponseDTO(unitConverterDTO,48);
+        given(unitConverterService.convertThisForMe(unitConverterDTO)).willReturn(responseDTO);
         try {
             this.mvc.perform(get("unit/convert"))
                     .andDo(print()).andExpect(status().isOk()).andExpect(content().json(String.valueOf(expectedValue)));

@@ -1,5 +1,6 @@
 package com.bridgelabz.converter.unitconverter.controller;
 
+import com.bridgelabz.converter.unitconverter.dto.ResponseDTO;
 import com.bridgelabz.converter.unitconverter.dto.UnitConverterDTO;
 import com.bridgelabz.converter.unitconverter.enumration.UnitConverterEnum;
 import com.bridgelabz.converter.unitconverter.enumration.UnitConverterSubType;
@@ -26,7 +27,7 @@ public class UnitConverterController {
     }
 
     @GetMapping("unit/convert")
-    double getConvertedUnit(@RequestParam(value = "MType") UnitConverterEnum mainType, @RequestParam(value = "iUnit") UnitConverterSubType initialUnit , @RequestParam(value="dConvUnint") UnitConverterSubType desiredConversion, @RequestParam(value="UValue")double value ){
+    ResponseDTO getConvertedUnit(@RequestParam(value = "MType") UnitConverterEnum mainType, @RequestParam(value = "iUnit") UnitConverterSubType initialUnit , @RequestParam(value="dConvUnint") UnitConverterSubType desiredConversion, @RequestParam(value="UValue")double value ){
         UnitConverterDTO unitConverterDTO=new UnitConverterDTO();
         unitConverterDTO.setMainType(mainType);
         unitConverterDTO.setInitialUnit(initialUnit);
